@@ -1,0 +1,42 @@
+<div class="form-container">
+  <div class="form-card">
+    <h2>Nueva Solicitud</h2>
+
+    <form [formGroup]="form" (ngSubmit)="guardar()">
+
+      <!-- Selección de medicamento -->
+      <div class="form-group">
+        <label>Medicamento</label>
+        <select id="medicamento" formControlName="medicamento">
+          <option value="" disabled>-- Seleccione --</option>
+          <option *ngFor="let med of medicamentos" [value]="med.id">
+            {{ med.nombre }} ({{ med.esPos ? 'POS' : 'NO POS' }})
+          </option>
+        </select>
+      </div>
+
+     <div class="form-group" *ngIf="showNoPosMessage">
+  <label>Número de Orden</label>
+  <input type="text" formControlName="numeroOrden" placeholder="Ingrese número de orden">
+
+  <label>Dirección</label>
+  <input type="text" formControlName="direccion" placeholder="Ingrese dirección">
+
+  <label>Teléfono</label>
+  <input type="text" formControlName="telefono" placeholder="Ingrese teléfono">
+
+  <label>Correo</label>
+  <input type="email" formControlName="correo" placeholder="Ingrese correo">
+</div>
+
+      <div class="button-group">
+        <button type="button" class="btn-secondary" (click)="cancelar()">Cancelar</button>
+        <button type="submit" class="btn-primary" [disabled]="form.invalid">Guardar</button>
+      </div>
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+
+    </form>
+  </div>
+</div>

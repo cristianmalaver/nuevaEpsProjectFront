@@ -1,0 +1,12 @@
+/node_modules/          # dependencias de NPM
+/dist/                  # carpeta de build
+/.angular/cache/        # cache de Angular
+/.idea/                 # configuración de IDE (opcional)
+*.log                   # logs
+npm-debug.log*          
+yarn-debug.log*         
+yarn-error.log*         
+*.swp                   # archivos temporales de editores
+.DS_Store               # macOS
+.env                    # variables de entorno si las usas
+.vscode/                # configuración local del editor
